@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="weather-dashboard">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1>🌤️ Weather Dashboard</h1>
+                <p class="tagline">Real-time weather information</p>
+            </div>
+            <div class="header-controls">
+                <button id="refreshBtn" class="btn-refresh" title="Refresh">🔄</button>
+                <button id="settingsBtn" class="btn-settings" title="Settings">⚙️</button>
+            </div>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="cityInput" 
+                    class="city-input" 
+                    placeholder="Search for a city..."
+                    autocomplete="off"
+                >
+                <button id="searchBtn" class="search-btn">Search</button>
+            </div>
+            <div id="suggestions" class="suggestions"></div>
+        </section>
+
+        <!-- Loading State -->
+        <div id="loadingState" class="loading-state" style="display: none;">
+            <div class="loader"></div>
+            <p>Fetching weather data...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="errorState" class="error-state" style="display: none;">
+            <p id="errorMessage"></p>
+            <button id="retryBtn" class="btn-retry">Retry</button>
+        </div>
+
+        <!-- Weather Content -->
+        <div id="weatherContent" class="weather-content" style="display: none;">
+            <!-- Current Weather -->
+            <section class="current-weather">
+                <div class="current-temp-container">
+                    <div class="current-icon">
+                        <img id="currentIcon" src="" alt="Weather Icon">
+                    </div>
+                    <div class="current-info">
+                        <h2 id="cityName"></h2>
+                        <p id="currentDate"></p>
+                        <div class="temp-display">
+                            <span id="temperature" class="temp-large"></span>
+                            <div class="temp-toggle">
+                                <button id="celsiusBtn" class="temp-btn active">°C</button>
+                                <button id="fahrenheitBtn" class="temp-btn">°F</button>
+                            </div>
+                        </div>
+                        <p id="weatherDescription" class="description"></p>
+                    </div>
+                </div>
+                <div class="current-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Feels Like</span>
+                        <span id="feelsLike" class="detail-value"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Humidity</span>
+                        <span id="humidity" class="detail-value"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Wind Speed</span>
+                        <span id="windSpeed" class="detail-value"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Pressure</span>
+                        <span id="pressure" class="detail-value"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Visibility</span>
+                        <span id="visibility" class="detail-value"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">UV Index</span>
+                        <span id="uvIndex" class="detail-value"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5-Day Forecast -->
+            <section class="forecast-section">
+                <h3>5-Day Forecast</h3>
+                <div class="forecast-grid" id="forecastGrid">
+                    <!-- Forecast cards will be populated here -->
+                </div>
+            </section>
+
+            <!-- Hourly Weather -->
+            <section class="hourly-section">
+                <h3>Hourly Weather</h3>
+                <div class="hourly-scroll" id="hourlyContainer">
+                    <!-- Hourly cards will be populated here -->
+                </div>
+            </section>
+
+            <!-- Additional Info -->
+            <section class="additional-info">
+                <h3>Additional Information</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <span class="info-label">Sunrise</span>
+                        <span id="sunrise" class="info-value"></span>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-label">Sunset</span>
+                        <span id="sunset" class="info-value"></span>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-label">Dew Point</span>
+                        <span id="dewPoint" class="info-value"></span>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-label">Precipitation</span>
+                        <span id="precipitation" class="info-value"></span>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-label">Cloud Cover</span>
+                        <span id="cloudCover" class="info-value"></span>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-label">Moon Phase</span>
+                        <span id="moonPhase" class="info-value"></span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Initial State -->
+        <div id="initialState" class="initial-state">
+            <div class="initial-content">
+                <h2>Welcome to Weather Dashboard</h2>
+                <p>Search for a city to see the current weather and forecast</p>
+                <button id="useLocationBtn" class="btn-primary">📍 Use My Location</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
