@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Web Beta</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="whatsapp-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h1>WhatsApp</h1>
+                <div class="header-icons">
+                    <button id="newChatBtn" title="New Chat">+</button>
+                    <button id="settingsBtn" title="Settings">⚙️</button>
+                </div>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search or start new chat">
+            </div>
+
+            <div class="chat-list" id="chatList">
+                <!-- Chats will be populated here -->
+            </div>
+        </div>
+
+        <!-- Chat Area -->
+        <div class="chat-area">
+            <div class="chat-header" id="chatHeader">
+                <div class="chat-info">
+                    <h2 id="chatName">Select a chat</h2>
+                    <p id="chatStatus">Online</p>
+                </div>
+                <div class="chat-header-icons">
+                    <button title="Call">📞</button>
+                    <button title="Video Call">📹</button>
+                    <button title="More Options">⋮</button>
+                </div>
+            </div>
+
+            <div class="messages-container" id="messagesContainer">
+                <div class="empty-state">
+                    <p>👋 Select a chat to start messaging</p>
+                </div>
+            </div>
+
+            <div class="message-input-area" id="messageInputArea" style="display: none;">
+                <input type="text" id="messageInput" placeholder="Type a message...">
+                <button id="sendBtn" title="Send">📤</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
